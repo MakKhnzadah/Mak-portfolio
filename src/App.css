@@ -1,38 +1,367 @@
-.App {
-  text-align: center;
+/* Main styles */
+:root {
+  --primary-color: #c9a97d; /* Gold */
+  --secondary-color: #2c3e50; /* Dark navy blue */
+  --accent-color: #e8e3d9; /* Light cream */
+  --dark-color: #1a1a1a; /* Nearly black */
+  --background-light: #f9f7f3; /* Off-white */
+  --text-dark: #1a1a1a;
+  --text-light: #f9f7f3;
+  --gold-gradient: linear-gradient(135deg, #c9a97d 0%, #e2c992 50%, #c9a97d 100%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Montserrat', 'Inter', 'Segoe UI', sans-serif;
+  color: var(--text-dark);
+  background-color: var(--background-light);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+main {
+  margin-top: 56px; /* For fixed navbar */
 }
 
-.App-header {
-  background-color: #282c34;
+section {
+  padding: 100px 0;
+}
+
+/* Luxury decorative elements */
+.gold-divider {
+  height: 3px;
+  width: 80px;
+  background: var(--gold-gradient);
+  margin: 20px auto;
+}
+
+.gold-divider.left-aligned {
+  margin: 20px 0;
+}
+
+.hero-section {
+  background: linear-gradient(rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.95));
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--text-light);
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(201, 169, 125, 0.2) 0%, rgba(26, 26, 26, 0) 50%);
+}
+
+/* Profile image styling */
+.profile-image-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  border: 5px solid var(--primary-color);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.profile-image-container::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 169, 125, 0.3);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.profile-image-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Experience timeline styling */
+.experience-heading {
+  position: relative;
+  padding-right: 20px;
+}
+
+.experience-heading h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.experience-heading h4 {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+
+/* Projects styling */
+.project-image-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .project-image-container img {
+  transform: scale(1.05);
+}
+
+/* Skills styling */
+.progress {
+  height: 10px;
+  border-radius: 5px;
+}
+
+/* Social links */
+.social-link {
+  color: var(--text-light);
+  font-size: 1.5rem;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: var(--primary-color);
+}
+
+/* Footer contact info */
+footer .text-primary {
+  color: #0d6efd !important;
+}
+
+footer a:hover {
+  text-decoration: underline !important;
+  color: #0d6efd !important;
+}
+
+/* Skills section styling */
+.skill-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.icon-container {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: rgba(13, 110, 253, 0.1);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0 auto;
 }
 
-.App-link {
-  color: #61dafb;
+.skills-list {
+  min-height: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
+.skills-list .badge {
+  transition: all 0.2s ease;
+}
+
+.skills-list .badge:hover {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+/* Social media links in footer */
+.footer .social-links a {
+  display: inline-block;
+  text-decoration: underline;
+  margin: 0 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.footer .social-links a:hover {
+  color: var(--primary-color) !important;
+  text-decoration: underline !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+  
+  .profile-image-container {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Skills Section */
+.skills-section {
+  background-color: #121212 !important;
+  color: #ffffff;
+  padding: 60px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+/* Skills section styling */
+.skills-section .progress {
+  height: 10px;
+  border-radius: 0;
+  background-color: #333;
+}
+
+.skills-section .progress-bar {
+  height: 10px;
+  transition: width 1s ease-in-out;
+}
+
+.skills-section .progress-bar.bg-primary {
+  background-color: #007bff !important;
+}
+
+.skills-section .progress-bar.bg-success {
+  background-color: #28a745 !important;
+}
+
+.skills-section .badge {
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  margin: 5px;
+  background-color: #444 !important;
+  color: white;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.skills-section .badge:hover {
+  transform: scale(1.1);
+  background-color: #007bff !important;
+}
+
+/* Custom styles for labels and percentages */
+.skills-section .d-flex span {
+  font-weight: 500;
+}
+
+.skills-section .d-flex span:first-child {
+  font-size: 1rem;
+}
+
+.skills-section .d-flex span:last-child {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Tools and technologies section */
+.skills-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Progress bars and badges styling for Skills section */
+.skills-section .progress {
+  height: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.blender-icon {
+  width: 80px;
+  height: 80px;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBkPSJNMTIyLjEgNTUuN2MxLjkgNi44IDEuOSAxMy44LS4xIDIwLjZoLTEuNGMxLjctNi40IDEuNy0xMyAwLTE5LjRsMS41LTEuMnpNMjIuOSA0MS44Yy0uMyAwLS42LjEtLjguM0w3LjggNTVjLS44LjYtMS4yIDEuNS0xLjIgMi40IDAgLjUuMS45LjMgMS40LS4yLjUtLjMuOS0uMyAxLjQgMCAuOS40IDEuOCAxLjIgMi40TDI3IDgwLjJsLjcuNGMtLjkgMS4zLTEuNCAyLjgtMS40IDQuNCAwIDQuMyAzLjUgNy44IDcuOCA3LjhoMTEuNmM0LjMgMCA3LjgtMy41IDcuOC03LjggMC0xLjYtLjUtMy4yLTEuNC00LjVsMzEuNS0xOC4xYy43LS40IDEuMi0xLjIgMS4yLTIgMC0uNC0uMS0uNy0uMy0xLjEuMi0uMy4zLS43LjMtMSAwLS44LS40LTEuNi0xLjItMkw1Mi42IDM4LjFjLTEuMy0uOC0yLjgtMS4yLTQuMy0xLjJIMjQuNGMtLjUgMC0xLjEuMS0xLjUuMy0uMi0uMi0uNS0uMy0uOC0uMy0uNiAwLTEuMS41LTEuMSAxLjF2Mi43Yy4xLjUuNSAxLjEgMS4xIDEuMSIgZmlsbD0iI2ZmYTYyNiIvPjxwYXRoIGQ9Ik02NS40IDU5LjFjMC03LjQtMi42LTE0LjYtNy4zLTIwLjNzLTExLjItOS4yLTE4LjEtOS43SDMzLjhsLS4yLjEtLjEuMi0uMS4yLjEuMi4yLjEuMy4xaC42YzYuNS41IDEyLjUgMy40IDE3IDguM3M3IDExLjQgNyAxOC4yYzAgNi44LTIuNSAxMy4zLTcgMTguMi00LjUgNC45LTEwLjYgNy44LTE3IDguM2gtLjVjLS4xIDAtLjEgMC0uMi4xcy0uMS4xLS4xLjItLjEuMSAwIC4ydi4yYzAgLjEuMS4yLjIuMmguM2MuMSAwIC4yIDAgLjMtLjFoNmM2LjktLjQgMTMuNC0zLjkgMTguMS05LjYgNC43LTUuNyA3LjMtMTIuOSA3LjMtMjAuM3oiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNNTEuNSA0OS41Yy0xLjkgMC0zLjcuNC01LjQgMS4zLTEuNy44LTMuMSAyLTQuMiAzLjUtMS4xIDEuNS0xLjkgMy4yLTIuMiA1LS4zIDEuOC0uMiAzLjcuMyA1LjQuNS4xIDEgLjEgMS41LjIgMS4xLjEgMi4yLjEgMy4yIDBsMS41LS4yYy0uNC0xLjEtLjUtMi4zLS40LTMuNS4xLTEuMi41LTIuMyAxLjEtMy40LjYtMSAxLjQtMS45IDIuNC0yLjYgMS0uNyAyLjEtMS4xIDMuMi0xLjIgMS4yLS4xIDIuMy4xIDMuNC42czIgMS4yIDIuOCAyLjJjLjggMSAxLjMgMi4xIDEuNiAzLjNzLjIgMi41LS4xIDMuN2MtLjMgMS4xLS44IDIuMi0xLjYgMy4xLS43LjktMS42IDEuNi0yLjYgMi4yLTEgLjYtMi4yLjktMy4zIDEuMS0xLjEuMS0yLjMuMS0zLjQtLjNsLTEuNi0uNWMtLjctLjMtMS40LS42LTIuMS0xbC0xLjQtLjljLS40LS4zLS44LS43LTEuMi0xLjEgMCAuMS0uMS4yLS4xLjMgMCAuMS0uMS4xLS4xLjJsLS4xLjMtLjEuMS0uMS4xLS4xLjEtLjEuMS0uMy4zYy0uMi4yLS4zLjQtLjUuNS0uNC4zLS44LjYtMS4yLjktLjguNS0xLjcuOS0yLjYgMS4yLS45LjMtMS45LjUtMi44LjYtLjUgMC0uOS4xLTEuNC4xaC0xLjRjLTEgMC0yLS4yLTIuOS0uNC0xLS4zLTEuOS0uNy0yLjgtMS4yLS45LS41LTEuNy0xLjEtMi40LTEuOC0uNy0uNy0xLjMtMS41LTEuOS0yLjQtLjUtLjgtLjktMS44LTEuMi0yLjctLjMtMSAwLTEuOS0uMS0yLjkgMC0xIC4yLTEuOS40LTIuOS4zLTEgLjctMS45IDEuMi0yLjhzMS4xLTEuNyAxLjgtMi40Yy43LS43IDEuNS0xLjMgMi40LTEuOS44LS41IDEuOC0uOSAyLjctMS4yIDEtLjMgMS45LS40IDMtLjVoM2MxIC4xIDIgLjMgMi45LjYuOS4zIDEuOC43IDIuNiAxLjIuOC41IDEuNiAxIDIuNCAxLjcuOC42IDEuNSAxLjMgMi4yIDIuMS4xIDAgLjEtLjEuMi0uMWwuMS0uMS4xLS4xcy4xIDAgLjEtLjFjLjEtLjEuMS0uMS4yLS4ybC41LS41YzEuMS0xIDIuMy0xLjcgMy42LTIuMyAxLjMtLjYgMi42LS44IDQtLjkgMS40IDAgMi44LjMgNC4xLjkgMS4zLjYgMi41IDEuNSAzLjQgMi42IDEgMS4xIDEuNyAyLjQgMi4xIDMuOC40IDEuNC41IDIuOS4yIDQuMy0uMiAxLjQtLjggMi44LTEuNiA0LS44IDEuMi0xLjkgMi4yLTMuMiAyLjktMS4zLjgtMi43IDEuMi00LjIgMS40LTEuNS4yLTMgMC00LjQtLjQtMS4xLS4zLTIuMS0uOC0zLTEuNCAwIDAgMCAxLjQtLjEgNC4xdi43YzAgMS4yIDAgMS44LjEgMS44IDEuMS43IDIuMiAxLjIgMy40IDEuNi42LjIgMS4yLjMgMS44LjQuNC4xLjguMS4xLjF2LjhjLjQgMCAuOC4xIDEuMi4xLjguMSAxLjYuMSAyLjUuMS44IDAgMS43IDAgMi41LS4xLjQgMCAuOC0uMS0uNC0uMS0xLjEtLjMtMi4yLS42LTMuMi0xbC0uMS0uMWMtLjEgMC0uMS0uMS0uMS0uMmwtLjEtLjJjLS4xLS4zLS4xLS43LS4xLTFsLS4zLTYuNmMwLS4zIDAtLjYuMS0uOXMuMi0uNS4zLS43Yy4yLS4yLjQtLjQuNi0uNS4zLS4xLjUtLjIuOC0uMiAxLjUtLjIgMi45LS43IDQuMi0xLjUgMS4zLS44IDIuNC0xLjkgMy4yLTMuMy44LTEuNCAxLjMtMi45IDEuNC00LjUuMS0xLjYtLjItMy4yLS44LTQuNi0uNy0xLjQtMS43LTIuNy0zLTMuNi0xLjMtLjktMi43LTEuNS00LjMtMS43LTEuNS0uMy0zLjEtLjItNC42LjItMS41LjQtMi44IDEuMS00IDIuMS0uMi4yLS41LjQtLjcuNi0uMi4yLS40LjQtLjYuNy0xLTEtMi4xLTEuOS0zLjMtMi42LTEuMi0uNy0yLjUtMS4yLTMuOS0xLjVoLS4xYy0uNy0uMS0xLjUtLjItMi4yLS4zLS4zIDAgLjcgMC0uMSAwIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTExOS41IDU2YzAtLjIuMS0uMy4xLS41LjQtMS44LjgtMy42IDEuMS01LjQuMy0xLjMuNS0yLjUuOC0zLjguMi0xLjIuNS0yLjQgMS0zLjYgMC0uMS0uMS0uMi0uMi0uMmwtLjQtLjMtLjQtLjNjLS4xLS4xLS4zLS4xLS40IDBsLS4zLjNjLS4xLjItLjMuMy0uNC41LS40LjYtLjggMS4yLTEuMSAxLjlsLS45IDEuOWMtMS4zIDIuNi0yLjYgNS4yLTMuOSA3LjhsLTIuNiA1LjJjLS40LjktLjkgMS43LTEuMyAyLjYtLjIuNC0uNC44LS43IDEuMy0uMi41LS41LjktLjcgMS4zLS41LjgtLjkgMS43LTEuMyAyLjVsLTEuNCAxLjhjLS4xLjEtLjEuMi0uMi4zbDAg1C0uMS4zIDAgLjUtLjEuN2wuMS4xYy4xLjEuMi4xLjMuMWwuMS0uMWMwLS4xLjEtLjEuMS0uMi4xLS4xLjEtLjMuMi0uNC4xLS4zLjMtLjYuNC0uOS4zLS42LjYtMS4yIDEtMS44LjctMS4yIDEuMy0yLjUgMi0zLjcuNy0xLjIgMS40LTIuNSAyLjEtMy43LjctMS4yIDEuNS0yLjQgMi4yLTMuNi40LS43LjgtMS4zIDEuMy0xLjkuNC0uNi45LTEuMyAxLjMtMS45LjktMS4zIDEuOC0yLjYgMi43LTMuOS44LTEuMyAxLjctMi41IDIuNS0zLjggMC0uMS4xLS4xLjEtLjIgMC0uMS4xLS4xLjEtLjJzLjEtLjEuMS0uMXYtLjJjLjEgMCAuMS0uMS4xLS4xIDAgLjEgMCAuMS0uMS4yek02MS40IDY3LjdjLS4xLS4xLS4xLS4zLS4yLS40LS4xLS4xLS4xLS4zLS4yLS40LS4xLS4xLS4yLS4yLS40LS4yLS4xIDAtLjMgMC0uNC4xLS4xLjEtLjIuMi0uMy40LS4xLjEtLjEuMy0uMS40di4xYzAgLjEgMCAuMy4xLjQuMS4xLjEuMy4yLjQuMS4xLjIuMi40LjIuMSAwIC4zIDAgLjQtLjEuMS0uMS4yLS4yLjMtLjQuMS0uMS4xLS4zLjEtLjR2LS4xek01My4zIDQ0LjFjLS4xLS4xLS4xLS4zLS4yLS40LS4xLS4xLS4xLS4zLS4yLS40LS4xLS4xLS4yLS4yLS40LS4ycy0uMyAwLS40LjFjLS4xLjEtLjIuMi0uMy40LS4xLjEtLjEuMy0uMS40di4xYzAgLjEgMCAuMy4xLjQuMS4xLjEuMy4yLjQuMS4xLjIuMi40LjJzLjMgMCAuNC0uMWMuMS0uMS4yLS4yLjMtLjQuMS0uMS4xLS4zLjEtLjR2LS4xeiIgZmlsbD0iI2ZmYTYyNiIvPjwvc3ZnPg==');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.illustrator-icon {
+  width: 80px;
+  height: 80px;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMjM0IiBmaWxsPSJub25lIj48cmVjdCB3aWR0aD0iMjQwIiBoZWlnaHQ9IjIzNCIgcng9IjQyLjUiIGZpbGw9IiMzMzA2MDAiLz48cGF0aCBkPSJNNTEuODkxIDcwLjAzNkg5NS4yNjRMNzcuMDUxIDE0Mi42MThINzEuODY5TDY2Ljk4NSAxNTguNjQ3SDUwLjA4NEwxMTIuNzggNzAuMDM2SDE0My4wNzNMMTQ3LjM1NyAxNDEuMjA3SDEwNS41ODlMOTcuOTcyIDE1OC42NDdIODkuMjU3TDk0LjI0OCAxNDIuNjE4SDk5LjgzOEw4OS4xNCA4OS4zODJMNTEuODkyIDcwLjAzNloiIGZpbGw9IiNGRjlBMDAiLz48cGF0aCBkPSJNMTk0LjQ4IDE1OC42NDZWMTQxLjIwN0gxMzcuNDM2TDEyMi41MTYgNzAuMDM2SDE3MC4yMDJDMTcwLjIwMiA3MC4wMzYgMTkwLjY5MSAxMDQuNzU1IDE5NC40OCAxNTguNjQ2WiIgZmlsbD0iI0ZGOUEwMCIvPjwvc3ZnPg==');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.photoshop-icon {
+  width: 80px;
+  height: 80px;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMjM0IiBmaWxsPSJub25lIj48cmVjdCB3aWR0aD0iMjQwIiBoZWlnaHQ9IjIzNCIgcng9IjQyLjUiIGZpbGw9IiMwMDFFMzYiLz48cGF0aCBkPSJNNTQuMjkzNyA2OS42NTcySDE0MlYxMTAuNDE2QzE0MiAxMTAuNDE2IDExNy44OSAxMDcuMjM5IDk2LjQ0ODMgMTE3LjgxOEM3NC4xODAzIDEyOC43MTMgNTQuMjkzNyAxNTguNjQ2IDU0LjI5MzcgMTU4LjY0Nkg5OS45NDdDOTkuOTQ3IDE1OC42NDYgOTMuOTEwMyAxNDEuMjA3IDExNi4zMDUgMTMzLjg0NkMxNDEuMzU5IDEyNi4wMjkgMTc0Ljk0MyAxMzMuODQ2IDE3OS40NiA2OS42NTcyTDE1NC4wMjIgNjkuNjU3Mkw1NC4yOTM3IDY5LjY1NzJaIiBmaWxsPSIjMzFBOEZGIi8+PC9zdmc+');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* Progress bars and badges styling for Skills section */
+.skills-section .progress {
+  height: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.skills-section .badge {
+  margin: 4px;
+  padding: 8px 12px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.skills-section .badge:hover {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+/* Accessibility */
+a:focus, button:focus, input:focus, textarea:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
