@@ -11,6 +11,14 @@ interface ProjectItem {
 }
 
 const Projects: React.FC = () => {
+  const colorThemes = [
+    { main: '#c9a97d', accent: '#e2c992' }, // Gold
+    { main: '#1e4d92', accent: '#4a8cca' }, // Deep Blue
+    { main: '#14a098', accent: '#57cbc3' }, // Teal
+    { main: '#b87c47', accent: '#c79e5d' }, // Warm Brown/Orange
+    { main: '#7e57c2', accent: '#b085f5' }  // Purple
+  ];
+
   const projects: ProjectItem[] = [
     {
       title: 'NyUtdannet Job Portal',
@@ -187,53 +195,37 @@ const Projects: React.FC = () => {
                     {project.description}
                   </Card.Text>
                   <div className="mb-4">
-                    {project.technologies.map((tech, i) => (
-                      <Badge 
-                        className="me-2 mb-2" 
-                        key={i}
-                        style={{
-                          backgroundColor: index === 0 ? '#1e4d92' : index === 1 ? '#4a8cca' : index === 2 ? '#14a098' : index === 3 ? '#e67e22' : index === 4 ? '#7e57c2' : 'rgba(44, 62, 80, 0.1)',
-                          color: index <= 4 ? '#ffffff' : '#2c3e50',
-                          padding: '0.5rem 0.75rem',
-                          borderRadius: '4px',
-                          fontWeight: 500,
-                          fontSize: '0.8rem',
-                          transition: 'all 0.2s ease'
-                        }}
-                        onMouseOver={(e) => {
-                          if (index === 0) {
-                            e.currentTarget.style.backgroundColor = '#1a4282';
-                          } else if (index === 1) {
-                            e.currentTarget.style.backgroundColor = '#3a7cb8';
-                          } else if (index === 2) {
-                            e.currentTarget.style.backgroundColor = '#12908a';
-                          } else if (index === 3) {
-                            e.currentTarget.style.backgroundColor = '#b87c47ff';
-                          } else if (index === 4) {
-                            e.currentTarget.style.backgroundColor = '#e0a2a2ff';
-                          } else {
-                            e.currentTarget.style.backgroundColor = 'rgba(44, 62, 80, 0.15)';
-                          }
-                        }}
-                        onMouseOut={(e) => {
-                          if (index === 0) {
-                            e.currentTarget.style.backgroundColor = '#1e4d92';
-                          } else if (index === 1) {
-                            e.currentTarget.style.backgroundColor = '#4a8cca';
-                          } else if (index === 2) {
-                            e.currentTarget.style.backgroundColor = '#14a098';
-                          } else if (index === 3) {
-                            e.currentTarget.style.backgroundColor = '#b87c47ff';
-                          } else if (index === 4) {
-                            e.currentTarget.style.backgroundColor = '#e0a2a2ff';
-                          } else {
-                            e.currentTarget.style.backgroundColor = 'rgba(44, 62, 80, 0.1)';
-                          }
-                        }}
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
+                    {project.technologies.map((tech, i) => {
+                      const theme = colorThemes[index] || { main: 'rgba(44,62,80,0.3)', accent: 'rgba(44,62,80,0.15)' };
+                      return (
+                        <Badge
+                          className="me-2 mb-2"
+                          key={i}
+                          style={{
+                            background: `linear-gradient(135deg, ${theme.main}, ${theme.accent})`,
+                            color: '#ffffff',
+                            padding: '0.5rem 0.75rem',
+                            borderRadius: '4px',
+                            fontWeight: 500,
+                            fontSize: '0.8rem',
+                            letterSpacing: '0.3px',
+                            boxShadow: '0 2px 4px rgba(0,0,0,0.12)',
+                            border: '1px solid rgba(255,255,255,0.15)',
+                            transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                          }}
+                          onMouseOver={(e) => {
+                            e.currentTarget.style.transform = 'translateY(-2px)';
+                            e.currentTarget.style.boxShadow = '0 4px 10px rgba(0,0,0,0.18)';
+                          }}
+                          onMouseOut={(e) => {
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.boxShadow = '0 2px 4px rgba(0,0,0,0.12)';
+                          }}
+                        >
+                          {tech}
+                        </Badge>
+                      );
+                    })}
                   </div>
                   <div className="d-flex gap-3">
                     {project.demoUrl && (
