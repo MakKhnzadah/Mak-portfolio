@@ -23,7 +23,7 @@ const NavigationBar: React.FC = () => {
       fixed="top"
       className="transition-all duration-300"
       style={{ 
-        backgroundColor: isScrolled ? '#1a1a1a' : 'transparent',
+        backgroundColor: '#1a1a1a',
         boxShadow: isScrolled ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none',
         padding: isScrolled ? '0.5rem 1rem' : '1rem',
       }}

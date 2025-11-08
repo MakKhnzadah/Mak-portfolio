@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import ProfileImageUpload from './ProfileImageUpload';
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const Hero: React.FC = () => {
-  const [profileImage, setProfileImage] = useState('/images/mak_profile.jpg');
-  
+  // Prefer PNG; fallback to JPG if PNG not found (browser will 404 silently if missing)
+  const profileImage = '/images/mak_profile.png';
+
   return (
     <section id="home" className="hero-section py-5">
       <Container>
@@ -21,53 +21,21 @@ const Hero: React.FC = () => {
               Passionate about creating innovative software solutions and deriving meaningful insights from data.
               Experienced in full-stack development, data analytics, and machine learning.
             </p>
-            <div className="d-flex gap-3 justify-content-center justify-content-md-start">
-              <Button 
-                href="#contact" 
-                size="lg"
-                style={{ 
-                  backgroundColor: '#c9a97d', 
-                  borderColor: '#c9a97d',
-                  color: '#1a1a1a',
-                  fontWeight: 500,
-                  padding: '0.75rem 1.5rem'
-                }}
-              >
-                Contact Me
-              </Button>
-              <Button 
-                href="#projects" 
-                size="lg"
-                style={{ 
-                  backgroundColor: 'transparent', 
-                  borderColor: '#c9a97d',
-                  color: '#c9a97d',
-                  fontWeight: 500,
-                  padding: '0.75rem 1.5rem'
-                }}
-              >
-                View Projects
-              </Button>
-              <a 
-                className="btn btn-lg" 
-                href="/Mak_Khnzadah_CV.pdf" 
-                download
-                style={{ 
-                  backgroundColor: 'transparent', 
-                  borderColor: '#e8e3d9',
-                  color: '#e8e3d9',
-                  fontWeight: 500,
-                  padding: '0.75rem 1.5rem'
-                }}
-              >
-                Download CV
-              </a>
-            </div>
+            {/* CTA buttons removed per request */}
           </Col>
+
           <Col md={6} className="text-center mt-5 mt-md-0">
             <div className="profile-image-container position-relative">
               <img 
                 src={profileImage}
+                onError={(e) => {
+                  // Graceful fallback to JPG if PNG isn't present yet
+                  const target = e.currentTarget as HTMLImageElement;
+                  if (!target.dataset.fallback) {
+                    target.dataset.fallback = 'true';
+                    target.src = '/images/mak_profile.jpg';
+                  }
+                }}
                 alt="Mak Khnzadah" 
                 className="img-fluid rounded-circle profile-image shadow"
                 style={{
@@ -76,10 +44,6 @@ const Hero: React.FC = () => {
                   objectFit: 'cover',
                   border: '5px solid #c9a97d'
                 }}
-              />
-              <ProfileImageUpload 
-                currentImagePath={profileImage}
-                onImageChange={setProfileImage}
               />
             </div>
           </Col>

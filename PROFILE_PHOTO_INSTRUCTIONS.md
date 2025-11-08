@@ -3,9 +3,13 @@
 To add your profile photo to the portfolio:
 
 1. Locate your desired profile photo on your computer
-2. Rename it to `mak_profile.jpg` 
+2. Rename it to `mak_profile.png` (preferred) or `mak_profile.jpg` (fallback)
 3. Copy the file to the following location in your project:
    ```
+   c:\Users\mkhnz\OneDrive\Desktop\mak-portfolio\public\images\mak_profile.png
+   
+   If you only have a JPG version, place it as:
+   
    c:\Users\mkhnz\OneDrive\Desktop\mak-portfolio\public\images\mak_profile.jpg
    ```
 4. Refresh your browser to see the changes
@@ -18,5 +22,7 @@ To add your profile photo to the portfolio:
 4. Select your photo from your computer
 5. Click "Upload Photo"
 6. The change will be temporary and reset when you refresh the page (this is because we don't have a backend server to permanently store the uploaded image)
+
+Note: The site prefers `mak_profile.png` automatically and will gracefully fall back to `mak_profile.jpg` if the PNG is missing.
 
 Note: In a production environment, you would typically have a backend server to handle file uploads and storage.

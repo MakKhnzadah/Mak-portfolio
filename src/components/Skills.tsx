@@ -1,46 +1,7 @@
 ﻿import React from "react";
-import { Container, Row, Col, ProgressBar } from "react-bootstrap";
-
-interface Skill {
-  name: string;
-  proficiency: number;
-}
+import { Container, Row, Col } from "react-bootstrap";
 
 const Skills: React.FC = () => {
-  const technicalSkills: Skill[] = [
-    { name: "HTML/CSS", proficiency: 90 },
-    { name: "JavaScript", proficiency: 85 },
-    { name: "TypeScript", proficiency: 80 },
-    { name: "React", proficiency: 85 },
-    { name: "Node.js", proficiency: 80 },
-    { name: "SQL", proficiency: 75 },
-    { name: "C#", proficiency: 75 },
-    { name: "C++", proficiency: 70 },
-    { name: "Python", proficiency: 70 },
-    { name: "Java", proficiency: 70 },
-  ];
-
-  const softSkills: Skill[] = [
-    { name: "Problem Solving", proficiency: 90 },
-    { name: "Communication", proficiency: 85 },
-    { name: "Teamwork", proficiency: 85 },
-    { name: "Project Management", proficiency: 70 },
-    { name: "Creativity", proficiency: 80 },
-    { name: "Adaptability", proficiency: 85 },
-  ];
-
-  const progressBarStyles = {
-    height: '8px',
-    borderRadius: '4px',
-    backgroundColor: 'rgba(201, 169, 125, 0.2)'
-  };
-
-  const progressFilledStyles = {
-    backgroundColor: '#c9a97d',
-    backgroundImage: 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent)',
-    backgroundSize: '30px 30px',
-    animation: 'progress-bar-stripes 1s linear infinite'
-  };
 
   return (
     <section id="skills" className="skills-section py-5" style={{ backgroundColor: '#1a1a1a', color: '#f9f7f3' }}>
@@ -48,83 +9,29 @@ const Skills: React.FC = () => {
         <h2 className="text-center mb-2" style={{ color: '#f9f7f3', fontWeight: 600, letterSpacing: '1px' }}>Skills</h2>
         <div className="gold-divider mb-5"></div>
         
-        <Row className="mb-5 gx-5">
-          <Col md={6}>
-            <h3 className="mb-4" style={{ color: '#c9a97d', fontWeight: 500, fontSize: '1.5rem' }}>Technical Skills</h3>
-            {technicalSkills.map((skill, index) => (
-              <div key={index} className="mb-4">
-                <div className="d-flex justify-content-between align-items-center mb-2">
-                  <span style={{ fontSize: '1rem', fontWeight: 500 }}>{skill.name}</span>
-                  <span style={{ fontSize: '0.9rem', color: '#c9a97d', fontWeight: 600 }}>{skill.proficiency}%</span>
-                </div>
-                <div className="progress" style={progressBarStyles}>
-                  <div 
-                    className="progress-bar" 
-                    role="progressbar" 
-                    style={{
-                      ...progressFilledStyles,
-                      width: `${skill.proficiency}%`,
-                    }}
-                    aria-valuenow={skill.proficiency}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                  ></div>
-                </div>
-              </div>
-            ))}
-          </Col>
-          
-          <Col md={6}>
-            <h3 className="mb-4" style={{ color: '#c9a97d', fontWeight: 500, fontSize: '1.5rem' }}>Soft Skills</h3>
-            {softSkills.map((skill, index) => (
-              <div key={index} className="mb-4">
-                <div className="d-flex justify-content-between align-items-center mb-2">
-                  <span style={{ fontSize: '1rem', fontWeight: 500 }}>{skill.name}</span>
-                  <span style={{ fontSize: '0.9rem', color: '#c9a97d', fontWeight: 600 }}>{skill.proficiency}%</span>
-                </div>
-                <div className="progress" style={progressBarStyles}>
-                  <div 
-                    className="progress-bar" 
-                    role="progressbar" 
-                    style={{
-                      ...progressFilledStyles,
-                      width: `${skill.proficiency}%`,
-                    }}
-                    aria-valuenow={skill.proficiency}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                  ></div>
-                </div>
-              </div>
-            ))}
+        <Row className="mb-5">
+          <Col md={12} className="text-center">
+            <h3 className="mb-4" style={{ color: '#c9a97d', fontWeight: 500, fontSize: '1.5rem' }}>🛠️ Languages & Tools</h3>
+            <div className="d-flex flex-wrap justify-content-center align-items-center gap-4 mb-4">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt=".NET Core" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
+            </div>
           </Col>
         </Row>
         
         <Row>
-          <Col md={12}>
-            <h3 className="mb-4" style={{ color: '#c9a97d', fontWeight: 500, fontSize: '1.5rem' }}>Tools & Technologies</h3>
-            <div className="d-flex flex-wrap gap-2">
-              {["HTML", "CSS", "JavaScript", "TypeScript", "React", 
-                "C/C++", "Java", "Python", "SQL", "MySQL", "PostgreSQL", "MongoDB", 
-                "Bootstrap", "Git", "GitHub", "Gitea", "Gitlab", "Figma"].map((tool, index) => (
-                <span 
-                  key={index} 
-                  className="badge p-2 m-1" 
-                  style={{ 
-                    backgroundColor: 'rgba(201, 169, 125, 0.15)', 
-                    color: '#e8e3d9',
-                    border: '1px solid rgba(201, 169, 125, 0.3)',
-                    borderRadius: '4px',
-                    padding: '8px 15px',
-                    fontSize: '0.85rem',
-                    fontWeight: 500,
-                    letterSpacing: '0.5px',
-                    transition: 'all 0.3s ease'
-                  }}
-                >
-                  {tool}
-                </span>
-              ))}
+          <Col md={12} className="text-center">
+            <div className="mb-4" style={{ fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto', lineHeight: '1.6' }}>
+              <p>I specialize in full-stack development with a strong foundation in object-oriented programming, web development, and database management. My technical toolkit spans multiple programming paradigms and frameworks, allowing me to approach problems with versatility and precision.</p>
             </div>
           </Col>
         </Row>
