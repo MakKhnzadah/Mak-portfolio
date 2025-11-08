@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
             <p className="lead mb-4" style={{ fontWeight: 300, lineHeight: 1.8 }}>
               Passionate about creating innovative software solutions and turning data into meaningful insights. 
               I’m currently studying Computer Engineering at the University of Agder, where I focus on full-stack development. 
-              I enjoy building practical, impactful solutions — finding smart ways to solve both small and complex problems through code and creative thinking.
+              I enjoy building practical, impactful solutions, finding smart ways to solve both small and complex problems through code and creative thinking.
             </p>
             {/* CTA buttons removed per request */}
           </Col>
