@@ -16,11 +16,12 @@ const Hero: React.FC = () => {
             </h1>
             <div className="gold-divider left-aligned"></div>
             <h2 className="h3 mb-4" style={{ fontWeight: 300, letterSpacing: '1px' }}>
-              Software Engineer & Data Scientist
+              Software Engineer and Software Developer
             </h2>
             <p className="lead mb-4" style={{ fontWeight: 300, lineHeight: 1.8 }}>
-              Passionate about creating innovative software solutions and deriving meaningful insights from data.
-              Experienced in full-stack development, data analytics, and machine learning.
+              Passionate about creating innovative software solutions and turning data into meaningful insights. 
+              I’m currently studying Computer Engineering at the University of Agder, where I focus on full-stack development. 
+              I enjoy building practical, impactful solutions — finding smart ways to solve both small and complex problems through code and creative thinking.
             </p>
             {/* CTA buttons removed per request */}
           </Col>
