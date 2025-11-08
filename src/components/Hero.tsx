@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
             </h1>
             <div className="gold-divider left-aligned"></div>
             <h2 className="h3 mb-4" style={{ fontWeight: 300, letterSpacing: '1px' }}>
-              Software Engineer and Software Developer
+              Data Engineer and Software Developer
             </h2>
             <p className="lead mb-4" style={{ fontWeight: 300, lineHeight: 1.8 }}>
               Passionate about creating innovative software solutions and turning data into meaningful insights. 
