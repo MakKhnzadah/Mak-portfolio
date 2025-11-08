@@ -16,7 +16,7 @@ const Projects: React.FC = () => {
     { main: '#1e4d92', accent: '#4a8cca' }, // Deep Blue
     { main: '#14a098', accent: '#57cbc3' }, // Teal
     { main: '#b87c47', accent: '#c79e5d' }, // Warm Brown/Orange
-    { main: '#7e57c2', accent: '#b085f5' }  // Purple
+    { main: '#e07ea8', accent: '#f4a9c7' }  // Pink for Munin Alert
   ];
 
   const projects: ProjectItem[] = [
@@ -79,7 +79,7 @@ const Projects: React.FC = () => {
                     : index === 3
                     ? '0 15px 35px rgba(230, 126, 34, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1)'
                     : index === 4
-                    ? '0 15px 35px rgba(126, 87, 194, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1)'
+                    ? '0 15px 35px rgba(224, 126, 168, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1)'
                     : '0 10px 30px rgba(0, 0, 0, 0.1)',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                   border: index === 0 
@@ -91,7 +91,7 @@ const Projects: React.FC = () => {
                     : index === 3
                     ? '1px solid rgba(230, 126, 34, 0.3)'
                     : index === 4
-                    ? '1px solid rgba(126, 87, 194, 0.3)'
+                    ? '1px solid rgba(224, 126, 168, 0.3)'
                     : 'none'
                 }}
               >
@@ -119,7 +119,7 @@ const Projects: React.FC = () => {
                         : index === 3
                         ? 'linear-gradient(to bottom, rgba(230, 126, 34, 0.2), rgba(0, 0, 0, 0))'
                         : index === 4
-                        ? 'linear-gradient(to bottom, rgba(126, 87, 194, 0.2), rgba(0, 0, 0, 0))'
+                        ? 'linear-gradient(to bottom, rgba(224, 126, 168, 0.2), rgba(0, 0, 0, 0))'
                         : 'linear-gradient(to bottom, rgba(44, 62, 80, 0.1), rgba(0, 0, 0, 0))',
                       zIndex: 1
                     }}
@@ -180,7 +180,7 @@ const Projects: React.FC = () => {
                       fontSize: index <= 4 ? '1.5rem' : '1.4rem', 
                       fontWeight: 600, 
                       marginBottom: index <= 4 ? '1.2rem' : '1rem',
-                      color: index === 0 ? '#c9a97d' : index === 1 ? '#1e4d92' : index === 2 ? '#14a098' : index === 3 ? '#e67e22' : index === 4 ? '#7e57c2' : '#2c3e50',
+                      color: index === 0 ? '#c9a97d' : index === 1 ? '#1e4d92' : index === 2 ? '#14a098' : index === 3 ? '#e67e22' : index === 4 ? '#e07ea8' : '#2c3e50',
                       letterSpacing: index <= 4 ? '0.5px' : 'normal'
                     }}
                   >
@@ -233,8 +233,8 @@ const Projects: React.FC = () => {
                         href={project.demoUrl} 
                         target="_blank" 
                         style={{
-                          backgroundColor: index === 0 ? '#c9a97d' : index === 1 ? '#4a8cca' : index === 2 ? '#14a098' : index === 3 ? '#e67e22' : index === 4 ? '#7e57c2' : '#c9a97d',
-                          borderColor: index === 0 ? '#c9a97d' : index === 1 ? '#4a8cca' : index === 2 ? '#14a098' : index === 3 ? '#e67e22' : index === 4 ? '#7e57c2' : '#c9a97d',
+                          backgroundColor: index === 0 ? '#c9a97d' : index === 1 ? '#4a8cca' : index === 2 ? '#14a098' : index === 3 ? '#e67e22' : index === 4 ? '#e07ea8' : '#c9a97d',
+                          borderColor: index === 0 ? '#c9a97d' : index === 1 ? '#4a8cca' : index === 2 ? '#14a098' : index === 3 ? '#e67e22' : index === 4 ? '#e07ea8' : '#c9a97d',
                           color: index === 0 ? '#1a1a1a' : '#ffffff',
                           fontWeight: 500,
                           padding: index <= 4 ? '0.6rem 1.5rem' : '0.5rem 1.25rem',
@@ -267,8 +267,8 @@ const Projects: React.FC = () => {
                             e.currentTarget.style.backgroundColor = '#c17a3bff';
                             e.currentTarget.style.boxShadow = '0 6px 15px rgba(230, 126, 34, 0.4)';
                           } else if (index === 4) {
-                            e.currentTarget.style.backgroundColor = '#e0a2a2ff';
-                            e.currentTarget.style.boxShadow = '0 6px 15px rgba(126, 87, 194, 0.4)';
+                            e.currentTarget.style.backgroundColor = '#f4a9c7';
+                            e.currentTarget.style.boxShadow = '0 6px 15px rgba(224, 126, 168, 0.4)';
                           } else {
                             e.currentTarget.style.backgroundColor = '#d3b38a';
                           }
@@ -287,8 +287,8 @@ const Projects: React.FC = () => {
                             e.currentTarget.style.backgroundColor = '#bb793fff';
                             e.currentTarget.style.boxShadow = '0 4px 12px rgba(230, 126, 34, 0.3)';
                           } else if (index === 4) {
-                            e.currentTarget.style.backgroundColor = '#7e57c2';
-                            e.currentTarget.style.boxShadow = '0 4px 12px rgba(126, 87, 194, 0.3)';
+                            e.currentTarget.style.backgroundColor = '#e07ea8';
+                            e.currentTarget.style.boxShadow = '0 4px 12px rgba(224, 126, 168, 0.3)';
                           } else {
                             e.currentTarget.style.backgroundColor = '#c9a97d';
                             e.currentTarget.style.boxShadow = 'none';
@@ -313,7 +313,7 @@ const Projects: React.FC = () => {
                             : index === 3
                             ? '#e67e22'
                             : index === 4
-                            ? '#7e57c2'
+                            ? '#e07ea8'
                             : '#c9a97d',
                           color: index === 0 
                             ? '#c9a97d' 
@@ -324,7 +324,7 @@ const Projects: React.FC = () => {
                             : index === 3
                             ? '#e67e22'
                             : index === 4
-                            ? '#7e57c2'
+                            ? '#e07ea8'
                             : '#c9a97d',
                           fontWeight: 500,
                           padding: index <= 4 ? '0.6rem 1.5rem' : '0.5rem 1.25rem',
@@ -342,7 +342,7 @@ const Projects: React.FC = () => {
                           } else if (index === 3) {
                             e.currentTarget.style.backgroundColor = 'rgba(230, 126, 34, 0.1)';
                           } else if (index === 4) {
-                            e.currentTarget.style.backgroundColor = 'rgba(126, 87, 194, 0.1)';
+                            e.currentTarget.style.backgroundColor = 'rgba(224, 126, 168, 0.1)';
                           } else {
                             e.currentTarget.style.backgroundColor = 'rgba(201, 169, 125, 0.1)';
                           }
