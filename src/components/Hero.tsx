@@ -3,7 +3,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 const Hero: React.FC = () => {
   // Prefer PNG; fallback to JPG if PNG not found (browser will 404 silently if missing)
-  const profileImage = '/images/mak_profile.png';
+  const base = process.env.PUBLIC_URL || '';
+  const profileImage = `${base}/images/mak_profile.png`;
 
   return (
     <section id="home" className="hero-section py-5">
@@ -33,7 +34,7 @@ const Hero: React.FC = () => {
                   const target = e.currentTarget as HTMLImageElement;
                   if (!target.dataset.fallback) {
                     target.dataset.fallback = 'true';
-                    target.src = '/images/mak_profile.jpg';
+                    target.src = `${base}/images/mak_profile.jpg`;
                   }
                 }}
                 alt="Mak Khnzadah" 

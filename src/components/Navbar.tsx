@@ -48,7 +48,7 @@ const NavigationBar: React.FC = () => {
             <Nav.Link href="#skills" style={{ color: '#f9f7f3', margin: '0 0.5rem' }}>Skills</Nav.Link>
             <Nav.Link href="#projects" style={{ color: '#f9f7f3', margin: '0 0.5rem' }}>Projects</Nav.Link>
             <Nav.Link href="#education" style={{ color: '#f9f7f3', margin: '0 0.5rem' }}>Education</Nav.Link>
-            <Nav.Link href="/Mak_Khnzadah_CV.pdf" download className="ms-2">
+            <Nav.Link href={`${process.env.PUBLIC_URL}/Mak_Khnzadah_CV.pdf`} download className="ms-2">
               <Button 
                 style={{ 
                   backgroundColor: '#c9a97d', 
