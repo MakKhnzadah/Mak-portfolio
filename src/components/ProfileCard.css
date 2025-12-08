@@ -1,11 +1,11 @@
 :root {
   --pc-gold: #c9a97d;
   --pc-gold-soft: #d8ba90;
-  --pc-charcoal: #050505;
+  --pc-charcoal: #0c0c0c;
   --pc-charcoal-soft: #151515;
   --pc-cream: #f4ede0;
-  --pc-border: rgba(201, 169, 125, 0.5);
-  --pc-gradient: linear-gradient(145deg, rgba(201, 169, 125, 0.35) 0%, rgba(10, 10, 10, 0.92) 80%);
+  --pc-border: rgba(201, 169, 125, 0.55);
+  --pc-gradient: linear-gradient(160deg, rgba(32, 32, 32, 0.96) 0%, rgba(18, 18, 18, 0.94) 55%, rgba(201, 169, 125, 0.18) 100%);
 }
 
 .pc-card-wrapper {
@@ -20,7 +20,7 @@
   position: relative;
   transform-style: preserve-3d;
   transition: transform 320ms ease, filter 320ms ease;
-  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.45));
+  filter: drop-shadow(0 18px 46px rgba(0, 0, 0, 0.55));
 }
 
 .pc-card-shell.active {
@@ -37,7 +37,8 @@
   background: var(--pc-gradient);
   min-height: 420px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--pc-border);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(201, 169, 125, 0.12) inset;
   backdrop-filter: blur(12px);
 }
 
@@ -67,9 +68,11 @@
 }
 
 .pc-card::after {
-  background: var(--inner-gradient, var(--pc-gradient));
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 10%, rgba(201, 169, 125, 0.14), transparent 45%),
+    var(--inner-gradient, var(--pc-gradient));
   mix-blend-mode: screen;
-  opacity: 0.35;
+  opacity: 0.55;
 }
 
 .pc-behind {
