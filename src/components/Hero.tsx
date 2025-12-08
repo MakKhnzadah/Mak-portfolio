@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import ProfileCard from './ProfileCard';
 
 const Hero: React.FC = () => {
   const base = process.env.PUBLIC_URL || '';
@@ -30,13 +29,20 @@ const Hero: React.FC = () => {
             md={6}
             className="d-flex justify-content-center justify-content-md-end mt-4 mt-md-0"
           >
-            <ProfileCard
-              avatarUrl={profileImage}
-              fallbackAvatarUrl={profileFallback}
-              showUserInfo={false}
-              enableMobileTilt
-              className="hero-profile-card"
-            />
+            <div className="profile-image-container">
+              <img
+                src={profileImage}
+                alt="Mak Khnzadah"
+                className="profile-image"
+                loading="lazy"
+                onError={e => {
+                  const t = e.target as HTMLImageElement;
+                  if (t.dataset.fallback) return;
+                  t.dataset.fallback = 'true';
+                  t.src = profileFallback;
+                }}
+              />
+            </div>
           </Col>
         </Row>
       </Container>
