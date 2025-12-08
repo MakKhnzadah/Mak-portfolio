@@ -48,6 +48,7 @@
   position: relative;
   border-radius: 24px;
   background: var(--pc-gradient);
+  background-color: #161310; /* fallback for Firefox when backdrop-filter/mix-blend are weak */
   min-height: 360px;
   overflow: hidden;
   border: 1px solid var(--pc-border);
@@ -88,6 +89,14 @@
     var(--inner-gradient, var(--pc-gradient));
   mix-blend-mode: screen;
   opacity: 0.7;
+}
+
+@supports not (backdrop-filter: blur(4px)) {
+  .pc-card {
+    backdrop-filter: none;
+    background: linear-gradient(150deg, rgba(28, 24, 20, 0.96) 0%, rgba(18, 16, 14, 0.9) 60%, rgba(201, 169, 125, 0.12) 100%);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 169, 125, 0.3) inset;
+  }
 }
 
 .pc-behind {

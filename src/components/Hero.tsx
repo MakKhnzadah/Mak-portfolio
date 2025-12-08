@@ -3,17 +3,9 @@ import { Container, Row, Col } from 'react-bootstrap';
 import ProfileCard from './ProfileCard';
 
 const Hero: React.FC = () => {
-  // Prefer PNG; fallback to JPG if PNG not found (browser will 404 silently if missing)
   const base = process.env.PUBLIC_URL || '';
   const profileImage = `${base}/images/mak_profile.png`;
-  const profileFallback = `${base}/images/mak_profile.jpg`;
-  const miniProfile = `${base}/images/mak_profile-mini.png`;
-  const miniFallback = `${base}/images/mak_profile-mini.jpg`;
-
-  const handleContactCTA = () => {
-    const contactSection = document.getElementById('contact');
-    contactSection?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const profileFallback = `${base}/profile-placeholder.jpg`;
 
   return (
     <section id="home" className="hero-section py-5">
@@ -34,8 +26,18 @@ const Hero: React.FC = () => {
             </p>
             {/* CTA buttons removed per request */}
           </Col>
-
-
+          <Col
+            md={6}
+            className="d-flex justify-content-center justify-content-md-end mt-4 mt-md-0"
+          >
+            <ProfileCard
+              avatarUrl={profileImage}
+              fallbackAvatarUrl={profileFallback}
+              showUserInfo={false}
+              enableMobileTilt
+              className="hero-profile-card"
+            />
+          </Col>
         </Row>
       </Container>
     </section>
