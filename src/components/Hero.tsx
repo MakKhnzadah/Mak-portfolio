@@ -1,10 +1,19 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import ProfileCard from './ProfileCard';
 
 const Hero: React.FC = () => {
   // Prefer PNG; fallback to JPG if PNG not found (browser will 404 silently if missing)
   const base = process.env.PUBLIC_URL || '';
   const profileImage = `${base}/images/mak_profile.png`;
+  const profileFallback = `${base}/images/mak_profile.jpg`;
+  const miniProfile = `${base}/images/mak_profile-mini.png`;
+  const miniFallback = `${base}/images/mak_profile-mini.jpg`;
+
+  const handleContactCTA = () => {
+    const contactSection = document.getElementById('contact');
+    contactSection?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section id="home" className="hero-section py-5">
@@ -26,28 +35,18 @@ const Hero: React.FC = () => {
             {/* CTA buttons removed per request */}
           </Col>
 
-          <Col md={6} className="text-center mt-5 mt-md-0">
-            <div className="profile-image-container position-relative">
-              <img 
-                src={profileImage}
-                onError={(e) => {
-                  // Graceful fallback to JPG if PNG isn't present yet
-                  const target = e.currentTarget as HTMLImageElement;
-                  if (!target.dataset.fallback) {
-                    target.dataset.fallback = 'true';
-                    target.src = `${base}/images/mak_profile.jpg`;
-                  }
-                }}
-                alt="Mak Khnzadah" 
-                className="img-fluid rounded-circle profile-image shadow"
-                style={{
-                  width: '300px',
-                  height: '300px',
-                  objectFit: 'cover',
-                  border: '5px solid #c9a97d'
-                }}
-              />
-            </div>
+          <Col md={6} className="d-flex justify-content-center mt-5 mt-md-0">
+            <ProfileCard
+              avatarUrl={profileImage}
+              fallbackAvatarUrl={profileFallback}
+              miniAvatarUrl={miniProfile}
+              fallbackMiniAvatarUrl={miniFallback}
+              title="Data Engineer & Software Developer"
+              status="Available for opportunities"
+              contactText="Let's Talk"
+              handle="makkhnzadah"
+              onContactClick={handleContactCTA}
+            />
           </Col>
         </Row>
       </Container>

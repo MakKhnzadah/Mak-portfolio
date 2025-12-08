@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 const Skills: React.FC = () => {
@@ -11,7 +11,7 @@ const Skills: React.FC = () => {
         
         <Row className="mb-5">
           <Col md={12} className="text-center">
-            <h3 className="mb-4" style={{ color: '#c9a97d', fontWeight: 500, fontSize: '1.5rem' }}>🛠️ Languages & Tools</h3>
+            <h3 className="mb-4" style={{ color: '#c9a97d', fontWeight: 500, fontSize: '1.5rem' }}> Languages & Tools</h3>
             <div className="d-flex flex-wrap justify-content-center align-items-center gap-4 mb-4">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />

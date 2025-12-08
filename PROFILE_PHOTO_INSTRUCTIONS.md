@@ -1,3 +1,8 @@
+Run:
+PS C:\Users\mkhnz\OneDrive\Desktop\mak-portfolio> npm run build
+
+PS C:\Users\mkhnz\OneDrive\Desktop\mak-portfolio> npm start
+
 # Adding Your Profile Photo to the Portfolio
 
 To add your profile photo to the portfolio:
