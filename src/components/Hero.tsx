@@ -35,20 +35,7 @@ const Hero: React.FC = () => {
             {/* CTA buttons removed per request */}
           </Col>
 
-          <Col md={6} className="d-flex justify-content-center mt-5 mt-md-0">
-            <ProfileCard
-              avatarUrl={profileImage}
-              fallbackAvatarUrl={profileFallback}
-              miniAvatarUrl={miniProfile}
-              fallbackMiniAvatarUrl={miniFallback}
-              title="Data Engineer & Software Developer"
-              status="Available for opportunities"
-              contactText="Let's Talk"
-              handle="makkhnzadah"
-              showUserInfo={false}
-              onContactClick={handleContactCTA}
-            />
-          </Col>
+
         </Row>
       </Container>
     </section>
