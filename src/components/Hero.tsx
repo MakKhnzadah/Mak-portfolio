@@ -45,6 +45,7 @@ const Hero: React.FC = () => {
               status="Available for opportunities"
               contactText="Let's Talk"
               handle="makkhnzadah"
+              showUserInfo={false}
               onContactClick={handleContactCTA}
             />
           </Col>
