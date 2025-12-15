@@ -8,6 +8,7 @@ interface ProjectItem {
   imageUrl: string;
   demoUrl?: string;
   repoUrl?: string;
+  label?: string;
 }
 
 const Projects: React.FC = () => {
@@ -53,6 +54,7 @@ const Projects: React.FC = () => {
       description: 'Munin Alert is a full-stack monitoring and alerting platform with a React frontend and a Spring Boot backend. It features real-time alert updates via WebSockets, RESTful APIs for system health and event management, and interactive map visualization using Leaflet. The app supports user authentication, live status dashboards, and automated health checks for reliable system monitoring.',
       technologies: ['Java', 'JavaScript', 'HTML', 'CSS', 'React', 'Spring Boot', 'Maven', 'Batch Scripts', 'JSON', 'Markdown'],
   imageUrl: `${process.env.PUBLIC_URL}/images/munin_alert.png`,
+      label: 'Real Project',
       repoUrl: 'https://github.com/MakKhnzadah/munin-alert'
     }
   ];
@@ -149,7 +151,7 @@ const Projects: React.FC = () => {
                         boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)'
                       }}
                     >
-                      
+                      {project.label || ''}
                     </div>
                   )}
                   <Card.Img 
