@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Mak-portfolio/static/css/main.08af9e03.css",
-    "main.js": "/Mak-portfolio/static/js/main.63ce941e.js",
+    "main.js": "/Mak-portfolio/static/js/main.c5171f44.js",
     "static/js/453.d56aafee.chunk.js": "/Mak-portfolio/static/js/453.d56aafee.chunk.js",
     "index.html": "/Mak-portfolio/index.html",
     "main.08af9e03.css.map": "/Mak-portfolio/static/css/main.08af9e03.css.map",
-    "main.63ce941e.js.map": "/Mak-portfolio/static/js/main.63ce941e.js.map",
+    "main.c5171f44.js.map": "/Mak-portfolio/static/js/main.c5171f44.js.map",
     "453.d56aafee.chunk.js.map": "/Mak-portfolio/static/js/453.d56aafee.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.08af9e03.css",
-    "static/js/main.63ce941e.js"
+    "static/js/main.c5171f44.js"
   ]
 }
