@@ -11,14 +11,14 @@ interface EducationItem {
 const Education: React.FC = () => {
   const educationItems: EducationItem[] = [
     {
-      degree: 'Bachelor i dataingeniør, programvareutvikling',
-      institution: 'Universitetet i Agder (UiA), Norge',
+      degree: 'Bachelor of Engineering in Computer Science, Software Development',
+      institution: 'University of Agder (UiA), Norway',
       period: '2023 - Present',
       description: 'Currently pursuing a Bachelor in Computer Engineering with specialization in software development.'
     },
     {
-      degree: 'Bachelor i økonomi',
-      institution: 'Damaskus Universitet, Syria',
+      degree: 'Bachelor in Economics and Trading',
+      institution: 'University of Damascus, Syria',
       period: '2003 - 2006',
       description: 'Completed Bachelor degree in Economics.'
     },
