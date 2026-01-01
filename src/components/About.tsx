@@ -11,22 +11,23 @@ const About: React.FC = () => {
           <Col lg={8} className="mx-auto">
            <p className="lead" style={{ fontWeight: 300, lineHeight: 1.8 }}>
   I am a motivated and results-oriented third-year Computer Engineering student with a strong focus on software development and programming.
-  I have experience in procurement and administration, along with solid skills in 
-  <span style={{ color: '#c9a97d' }}>Java</span>, 
-  <span style={{ color: '#c9a97d' }}>Spring Boot</span>, 
-  <span style={{ color: '#c9a97d' }}>Maven</span>, 
-  <span style={{ color: '#c9a97d' }}>C</span>, 
-  <span style={{ color: '#c9a97d' }}>C#</span>, 
-  <span style={{ color: '#c9a97d' }}>.NET</span>, 
-  <span style={{ color: '#c9a97d' }}>C++</span>, 
-  <span style={{ color: '#c9a97d' }}>JavaScript</span>, 
-  <span style={{ color: '#c9a97d' }}>TypeScript</span>, 
-  <span style={{ color: '#c9a97d' }}>Python</span>, 
+  I have experience in procurement and administration, along with solid skills in{" "}
+  <span style={{ color: '#c9a97d' }}>Java</span>,{" "}
+  <span style={{ color: '#c9a97d' }}>Spring Boot</span>,{" "}
+  <span style={{ color: '#c9a97d' }}>Maven</span>,{" "}
+  <span style={{ color: '#c9a97d' }}>C</span>,{" "}
+  <span style={{ color: '#c9a97d' }}>C#</span>,{" "}
+  <span style={{ color: '#c9a97d' }}>.NET</span>,{" "}
+  <span style={{ color: '#c9a97d' }}>C++</span>,{" "}
+  <span style={{ color: '#c9a97d' }}>JavaScript</span>,{" "}
+  <span style={{ color: '#c9a97d' }}>TypeScript</span>,{" "}
+  <span style={{ color: '#c9a97d' }}>Python</span>{" "}
   and design.
 </p>
 
+
             <p style={{ lineHeight: 1.8 }}>
-              Beyond my technical background, I am also an artist who creates acrylic paintings—an experience that enriches my creativity and enhances my problem-solving approach. 
+              Beyond my technical background, I am also an artist who creates acrylic paintings an experience that enriches my creativity and enhances my problem-solving approach. 
               I am eager to contribute to innovative solutions, strengthen my technical expertise, and develop efficient code in a dynamic technology environment.
             </p>
             <div className="mt-5 pt-3">
