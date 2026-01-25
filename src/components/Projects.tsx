@@ -1,24 +1,44 @@
 import React from 'react';
 import { Container, Row, Col, Card, Badge, Button } from 'react-bootstrap';
 
+type ThemeKey = 'gold' | 'blue' | 'teal' | 'orange' | 'pink' | 'purple' | 'yellow';
+
 interface ProjectItem {
   title: string;
   description: string;
   technologies: string[];
   imageUrl: string;
+  imageFit?: 'contain' | 'cover';
+  imagePadding?: string;
+  imageBackground?: string;
   demoUrl?: string;
   repoUrl?: string;
   label?: string;
+  themeKey?: ThemeKey;
 }
 
 const Projects: React.FC = () => {
-  const colorThemes = [
-    { main: '#c9a97d', accent: '#e2c992' }, // Gold
-    { main: '#1e4d92', accent: '#4a8cca' }, // Deep Blue
-    { main: '#14a098', accent: '#57cbc3' }, // Teal
-    { main: '#b87c47', accent: '#c79e5d' }, // Warm Brown/Orange
-    { main: '#e07ea8', accent: '#f4a9c7' }  // Pink for Munin Alert
-  ];
+  const hexToRgba = (hex: string, alpha: number) => {
+    const normalized = hex.replace('#', '');
+    const full = normalized.length === 3
+      ? normalized.split('').map((c) => c + c).join('')
+      : normalized;
+    const intVal = Number.parseInt(full, 16);
+    const r = (intVal >> 16) & 255;
+    const g = (intVal >> 8) & 255;
+    const b = intVal & 255;
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
+  const projectThemes: Record<ThemeKey, { main: string; accent: string; demoHover?: string; demoText?: string }> = {
+    gold: { main: '#c9a97d', accent: '#e2c992', demoHover: '#d3b38a', demoText: '#1a1a1a' },
+    blue: { main: '#1e4d92', accent: '#4a8cca', demoHover: '#3a7cb8' },
+    teal: { main: '#14a098', accent: '#57cbc3', demoHover: '#12908a' },
+    orange: { main: '#e67e22', accent: '#c79e5d', demoHover: '#c17a3b' },
+    pink: { main: '#e07ea8', accent: '#f4a9c7', demoHover: '#f4a9c7' },
+    purple: { main: '#8b5cf6', accent: '#ddd6fe', demoHover: '#7c3aed' },
+    yellow: { main: '#d4a017', accent: '#f1d77a', demoHover: '#b8860b', demoText: '#1a1a1a' }
+  };
 
   const projects: ProjectItem[] = [
     {
@@ -26,28 +46,41 @@ const Projects: React.FC = () => {
       description: 'A comprehensive job portal platform designed specifically for newly graduated students and employers in Norway. Features include user role management (Employee/Employer), job listings with detailed views, application tracking, resume/cover letter uploads, and personalized dashboards that focus on connecting fresh graduates with relevant opportunities.',
       technologies: ['ASP.NET Core', 'C#', 'Entity Framework', 'SQLite', 'Identity', 'Razor Views', 'Bootstrap 5'],
   imageUrl: `${process.env.PUBLIC_URL}/images/nyutdannet-job-portal.png`,
-      repoUrl: 'https://github.com/MakKhnzadah/NyUtdannet_2'
+      repoUrl: 'https://github.com/MakKhnzadah/NyUtdannet_2',
+      themeKey: 'gold'
     },
     {
       title: 'TravelHub Social App',
       description: 'A feature-rich travel social application that helps users document and share their travel experiences. Users can create blog posts about places they\'ve visited, share photos, connect with friends, and discover new destinations through an interactive map interface. Includes features for travel visualization, social feed, customizable profiles, and multi-language support.',
       technologies: ['TypeScript','React Native', 'Expo', 'Firebase', 'Redux', 'MapView API', 'i18n', 'Cloud Storage'],
   imageUrl: `${process.env.PUBLIC_URL}/images/mapTogether.png`,
-      repoUrl: 'https://github.com/MakKhnzadah/ikt205g25v-group-03'
+      repoUrl: 'https://github.com/MakKhnzadah/ikt205g25v-group-03',
+      themeKey: 'blue'
     },
     {
       title: 'Statistics Project: Bicycle and Weather Data Analysis',
       description: 'A comprehensive data analysis project exploring the relationship between bicycle usage and weather conditions in three Norwegian cities: Bergen, Kristiansand, and Tromsø. Features include hypothesis testing, Bayesian analysis, and insightful visualizations through heatmaps, boxplots, scatter plots, and time series to uncover patterns in cycling activity relative to weather variables.',
       technologies: ['Python', 'Pandas', 'Matplotlib', 'Seaborn', 'Statistical Analysis', 'Jupyter Notebooks'],
   imageUrl: `${process.env.PUBLIC_URL}/images/bergen_heatmaps.png`,
-      repoUrl: 'https://github.com/MakKhnzadah/Statistics-Project'
+      repoUrl: 'https://github.com/MakKhnzadah/Statistics-Project',
+      themeKey: 'teal'
+    },
+    {
+      title: 'Security Hardening Web App (Java + Jetty + SQLite)',
+      description: 'A small Java web app running on embedded Jetty with FreeMarker templates and a SQLite backend, built as a software security exercise. I reviewed the authentication and patient-search flow, identified issues such as SQL injection risks, XSS potential, and weak error handling, then implemented mitigations aligned with OWASP guidance (parameterized SQL, safer template output, and tighter request/response handling).',
+      technologies: ['Java', 'Jetty (Servlets)', 'FreeMarker', 'SQLite', 'JDBC', 'Gradle', 'OWASP'],
+      imageUrl: `${process.env.PUBLIC_URL}/images/xss-reflected-form.PNG`,
+      label: 'Security Project',
+      repoUrl: 'https://github.com/MakKhnzadah/Identifying-and-Fixing-Security-Vulnerabilities-on-a-Web-Application',
+      themeKey: 'yellow'
     },
     {
       title: 'ShopLite',
       description: 'ShopLite is a full-stack e-commerce web app built with React and Spring Boot. It features secure JWT authentication, role-based access (User/Admin), and RESTful APIs for products, carts, and orders. The platform includes an admin dashboard for store management, file uploads, and basic health checks, with Stripe payment integration prepared.',
       technologies: ['Java', 'TypeScript', 'HTML', 'CSS', 'React', 'Spring Boot', 'Maven', 'JUnit', 'Docker'],
   imageUrl: `${process.env.PUBLIC_URL}/images/shop-lite.png`,
-      repoUrl: 'https://github.com/MakKhnzadah/Shop-Lite-Project'
+      repoUrl: 'https://github.com/MakKhnzadah/Shop-Lite-Project',
+      themeKey: 'orange'
     },
     {
       title: 'Munin Alert',
@@ -55,7 +88,11 @@ const Projects: React.FC = () => {
       technologies: ['Java', 'JavaScript', 'HTML', 'CSS', 'React', 'Spring Boot', 'Maven', 'Batch Scripts', 'JSON', 'Markdown'],
   imageUrl: `${process.env.PUBLIC_URL}/images/munin_alert.png`,
       label: 'Real Project',
-      repoUrl: 'https://github.com/MakKhnzadah/munin-alert'
+      repoUrl: 'https://github.com/MakKhnzadah/munin-alert',
+      themeKey: 'pink',
+      imageFit: 'contain',
+      imagePadding: '10px',
+      imageBackground: '#f9f7f3'
     }
   ];
 
@@ -66,41 +103,35 @@ const Projects: React.FC = () => {
         <div className="gold-divider mb-5"></div>
         <Row className="g-4">
           {projects.map((project, index) => (
+            (() => {
+              const isFeatured = index <= 4;
+              const theme = project.themeKey ? projectThemes[project.themeKey] : projectThemes.gold;
+              const featuredShadow = `0 15px 35px ${hexToRgba(theme.main, 0.2)}, 0 5px 15px rgba(0, 0, 0, 0.1)`;
+              const normalShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+              const featuredBorder = `1px solid ${hexToRgba(theme.main, 0.3)}`;
+              const overlayGradient = `linear-gradient(to bottom, ${hexToRgba(theme.main, 0.2)}, rgba(0, 0, 0, 0))`;
+              const labelGradient = `linear-gradient(135deg, ${theme.main}, ${theme.accent})`;
+              const demoTextColor = theme.demoText || '#ffffff';
+              const imageFit = project.imageFit || (isFeatured ? 'contain' : 'cover');
+              const imagePadding = project.imagePadding || (isFeatured ? '10px' : '0');
+              const imageBackground = project.imageBackground || (isFeatured ? '#f9f7f3' : 'transparent');
+
+              return (
             <Col lg={6} className="mb-4" key={index}>
               <Card 
-                className={`h-100 border-0 ${index <= 4 ? 'featured-project' : ''}`}
+                className={`h-100 border-0 ${isFeatured ? 'featured-project' : ''}`}
                 style={{ 
                   overflow: 'hidden', 
                   borderRadius: '8px', 
-                  boxShadow: index === 0 
-                    ? '0 15px 35px rgba(201, 169, 125, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1)' 
-                    : index === 1
-                    ? '0 15px 35px rgba(30, 77, 146, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1)'
-                    : index === 2
-                    ? '0 15px 35px rgba(20, 160, 152, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1)'
-                    : index === 3
-                    ? '0 15px 35px rgba(230, 126, 34, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1)'
-                    : index === 4
-                    ? '0 15px 35px rgba(224, 126, 168, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1)'
-                    : '0 10px 30px rgba(0, 0, 0, 0.1)',
+                  boxShadow: isFeatured ? featuredShadow : normalShadow,
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                  border: index === 0 
-                    ? '1px solid rgba(201, 169, 125, 0.3)' 
-                    : index === 1 
-                    ? '1px solid rgba(30, 77, 146, 0.3)' 
-                    : index === 2
-                    ? '1px solid rgba(20, 160, 152, 0.3)'
-                    : index === 3
-                    ? '1px solid rgba(230, 126, 34, 0.3)'
-                    : index === 4
-                    ? '1px solid rgba(224, 126, 168, 0.3)'
-                    : 'none'
+                  border: isFeatured ? featuredBorder : 'none'
                 }}
               >
                 <div 
                   className="project-image-container"
                   style={{
-                    height: index <= 4 ? '260px' : '220px',
+                    height: isFeatured ? '260px' : '220px',
                     overflow: 'hidden',
                     position: 'relative'
                   }}
@@ -112,35 +143,17 @@ const Projects: React.FC = () => {
                       left: 0,
                       width: '100%',
                       height: '100%',
-                      background: index === 0 
-                        ? 'linear-gradient(to bottom, rgba(201, 169, 125, 0.2), rgba(0, 0, 0, 0))'
-                        : index === 1
-                        ? 'linear-gradient(to bottom, rgba(30, 77, 146, 0.2), rgba(0, 0, 0, 0))'
-                        : index === 2
-                        ? 'linear-gradient(to bottom, rgba(20, 160, 152, 0.2), rgba(0, 0, 0, 0))'
-                        : index === 3
-                        ? 'linear-gradient(to bottom, rgba(230, 126, 34, 0.2), rgba(0, 0, 0, 0))'
-                        : index === 4
-                        ? 'linear-gradient(to bottom, rgba(224, 126, 168, 0.2), rgba(0, 0, 0, 0))'
-                        : 'linear-gradient(to bottom, rgba(44, 62, 80, 0.1), rgba(0, 0, 0, 0))',
+                      background: overlayGradient,
                       zIndex: 1
                     }}
                   ></div>
-                  {(index === 0 || index === 1 || index === 2 || index === 3 || index === 4) && (
+                  {project.label && (
                     <div 
                       style={{
                         position: 'absolute',
                         top: '10px',
                         left: '10px',
-                        background: index === 0 
-                          ? 'linear-gradient(135deg, #c9a97d, #e2c992)' 
-                          : index === 1
-                          ? 'linear-gradient(135deg, #1e4d92, #4a8cca)'
-                          : index === 2
-                          ? 'linear-gradient(135deg, #14a098, #57cbc3)'
-                          : index === 3
-                          ? 'linear-gradient(135deg, #b87c47ff, #c79e5dff)'
-                          : 'linear-gradient(135deg, #e0a2a2ff, #db9dc7ff)',
+                        background: labelGradient,
                         color: '#ffffff',
                         padding: '4px 12px',
                         borderRadius: '4px',
@@ -151,7 +164,7 @@ const Projects: React.FC = () => {
                         boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)'
                       }}
                     >
-                      {project.label || ''}
+                      {project.label}
                     </div>
                   )}
                   <Card.Img 
@@ -161,12 +174,12 @@ const Projects: React.FC = () => {
                     style={{
                       height: '100%',
                       width: '100%',
-                      objectFit: index <= 4 ? 'contain' : 'cover',
+                      objectFit: imageFit,
                       objectPosition: 'center',
                       transition: 'transform 0.5s ease',
                       transform: 'scale(1.0)',
-                      backgroundColor: index <= 4 ? '#f9f7f3' : 'transparent',
-                      padding: index <= 4 ? '10px' : '0'
+                      backgroundColor: imageBackground,
+                      padding: imagePadding
                     }}
                     onMouseOver={(e) => {
                       e.currentTarget.style.transform = 'scale(1.05)';
@@ -176,29 +189,28 @@ const Projects: React.FC = () => {
                     }}
                   />
                 </div>
-                <Card.Body style={{ padding: index <= 4 ? '2.25rem 1.75rem' : '2rem 1.5rem' }}>
+                <Card.Body style={{ padding: isFeatured ? '2.25rem 1.75rem' : '2rem 1.5rem' }}>
                   <Card.Title 
                     style={{ 
-                      fontSize: index <= 4 ? '1.5rem' : '1.4rem', 
+                      fontSize: isFeatured ? '1.5rem' : '1.4rem', 
                       fontWeight: 600, 
-                      marginBottom: index <= 4 ? '1.2rem' : '1rem',
-                      color: index === 0 ? '#c9a97d' : index === 1 ? '#1e4d92' : index === 2 ? '#14a098' : index === 3 ? '#e67e22' : index === 4 ? '#e07ea8' : '#2c3e50',
-                      letterSpacing: index <= 4 ? '0.5px' : 'normal'
+                      marginBottom: isFeatured ? '1.2rem' : '1rem',
+                      color: theme.main,
+                      letterSpacing: isFeatured ? '0.5px' : 'normal'
                     }}
                   >
                     {project.title}
                   </Card.Title>
                   <Card.Text style={{ 
-                    color: index <= 4 ? '#333' : '#555', 
+                    color: isFeatured ? '#333' : '#555', 
                     marginBottom: '1.5rem', 
                     lineHeight: 1.6,
-                    fontSize: index <= 4 ? '1.05rem' : '1rem'
+                    fontSize: isFeatured ? '1.05rem' : '1rem'
                   }}>
                     {project.description}
                   </Card.Text>
                   <div className="mb-4">
                     {project.technologies.map((tech, i) => {
-                      const theme = colorThemes[index] || { main: 'rgba(44,62,80,0.3)', accent: 'rgba(44,62,80,0.15)' };
                       return (
                         <Badge
                           className="me-2 mb-2"
@@ -235,66 +247,23 @@ const Projects: React.FC = () => {
                         href={project.demoUrl} 
                         target="_blank" 
                         style={{
-                          backgroundColor: index === 0 ? '#c9a97d' : index === 1 ? '#4a8cca' : index === 2 ? '#14a098' : index === 3 ? '#e67e22' : index === 4 ? '#e07ea8' : '#c9a97d',
-                          borderColor: index === 0 ? '#c9a97d' : index === 1 ? '#4a8cca' : index === 2 ? '#14a098' : index === 3 ? '#e67e22' : index === 4 ? '#e07ea8' : '#c9a97d',
-                          color: index === 0 ? '#1a1a1a' : '#ffffff',
+                          backgroundColor: theme.main,
+                          borderColor: theme.main,
+                          color: demoTextColor,
                           fontWeight: 500,
-                          padding: index <= 4 ? '0.6rem 1.5rem' : '0.5rem 1.25rem',
+                          padding: isFeatured ? '0.6rem 1.5rem' : '0.5rem 1.25rem',
                           borderRadius: '4px',
                           transition: 'all 0.3s ease',
-                          boxShadow: index === 0 
-                            ? '0 4px 12px rgba(201, 169, 125, 0.3)'
-                            : index === 1
-                            ? '0 4px 12px rgba(30, 77, 146, 0.3)'
-                            : index === 2
-                            ? '0 4px 12px rgba(20, 160, 152, 0.3)'
-                            : index === 3
-                            ? '0 4px 12px rgba(209, 130, 60, 0.3)'
-                            : index === 4
-                            ? '0 4px 12px rgba(126, 87, 194, 0.3)'
-                            : 'none',
-                          letterSpacing: index <= 4 ? '0.5px' : 'normal'
+                          boxShadow: isFeatured ? `0 4px 12px ${hexToRgba(theme.main, 0.3)}` : 'none',
+                          letterSpacing: isFeatured ? '0.5px' : 'normal'
                         }}
                         onMouseOver={(e) => {
-                          if (index === 0) {
-                            e.currentTarget.style.backgroundColor = '#d3b38a';
-                            e.currentTarget.style.boxShadow = '0 6px 15px rgba(201, 169, 125, 0.4)';
-                          } else if (index === 1) {
-                            e.currentTarget.style.backgroundColor = '#3a7cb8';
-                            e.currentTarget.style.boxShadow = '0 6px 15px rgba(30, 77, 146, 0.4)';
-                          } else if (index === 2) {
-                            e.currentTarget.style.backgroundColor = '#12908a';
-                            e.currentTarget.style.boxShadow = '0 6px 15px rgba(20, 160, 152, 0.4)';
-                          } else if (index === 3) {
-                            e.currentTarget.style.backgroundColor = '#c17a3bff';
-                            e.currentTarget.style.boxShadow = '0 6px 15px rgba(230, 126, 34, 0.4)';
-                          } else if (index === 4) {
-                            e.currentTarget.style.backgroundColor = '#f4a9c7';
-                            e.currentTarget.style.boxShadow = '0 6px 15px rgba(224, 126, 168, 0.4)';
-                          } else {
-                            e.currentTarget.style.backgroundColor = '#d3b38a';
-                          }
+                          e.currentTarget.style.backgroundColor = theme.demoHover || theme.accent;
+                          e.currentTarget.style.boxShadow = isFeatured ? `0 6px 15px ${hexToRgba(theme.main, 0.4)}` : 'none';
                         }}
                         onMouseOut={(e) => {
-                          if (index === 0) {
-                            e.currentTarget.style.backgroundColor = '#c9a97d';
-                            e.currentTarget.style.boxShadow = '0 4px 12px rgba(201, 169, 125, 0.3)';
-                          } else if (index === 1) {
-                            e.currentTarget.style.backgroundColor = '#4a8cca';
-                            e.currentTarget.style.boxShadow = '0 4px 12px rgba(30, 77, 146, 0.3)';
-                          } else if (index === 2) {
-                            e.currentTarget.style.backgroundColor = '#14a098';
-                            e.currentTarget.style.boxShadow = '0 4px 12px rgba(20, 160, 152, 0.3)';
-                          } else if (index === 3) {
-                            e.currentTarget.style.backgroundColor = '#bb793fff';
-                            e.currentTarget.style.boxShadow = '0 4px 12px rgba(230, 126, 34, 0.3)';
-                          } else if (index === 4) {
-                            e.currentTarget.style.backgroundColor = '#e07ea8';
-                            e.currentTarget.style.boxShadow = '0 4px 12px rgba(224, 126, 168, 0.3)';
-                          } else {
-                            e.currentTarget.style.backgroundColor = '#c9a97d';
-                            e.currentTarget.style.boxShadow = 'none';
-                          }
+                          e.currentTarget.style.backgroundColor = theme.main;
+                          e.currentTarget.style.boxShadow = isFeatured ? `0 4px 12px ${hexToRgba(theme.main, 0.3)}` : 'none';
                         }}
                       >
                         Live Demo
@@ -306,48 +275,16 @@ const Projects: React.FC = () => {
                         target="_blank"
                         style={{
                           backgroundColor: 'transparent',
-                          borderColor: index === 0 
-                            ? '#c9a97d' 
-                            : index === 1 
-                            ? '#4a8cca' 
-                            : index === 2
-                            ? '#14a098'
-                            : index === 3
-                            ? '#e67e22'
-                            : index === 4
-                            ? '#e07ea8'
-                            : '#c9a97d',
-                          color: index === 0 
-                            ? '#c9a97d' 
-                            : index === 1 
-                            ? '#4a8cca' 
-                            : index === 2
-                            ? '#14a098'
-                            : index === 3
-                            ? '#e67e22'
-                            : index === 4
-                            ? '#e07ea8'
-                            : '#c9a97d',
+                          borderColor: theme.main,
+                          color: theme.main,
                           fontWeight: 500,
-                          padding: index <= 4 ? '0.6rem 1.5rem' : '0.5rem 1.25rem',
+                          padding: isFeatured ? '0.6rem 1.5rem' : '0.5rem 1.25rem',
                           borderRadius: '4px',
                           transition: 'all 0.3s ease',
-                          letterSpacing: index <= 4 ? '0.5px' : 'normal'
+                          letterSpacing: isFeatured ? '0.5px' : 'normal'
                         }}
                         onMouseOver={(e) => {
-                          if (index === 0) {
-                            e.currentTarget.style.backgroundColor = 'rgba(201, 169, 125, 0.1)';
-                          } else if (index === 1) {
-                            e.currentTarget.style.backgroundColor = 'rgba(30, 77, 146, 0.1)';
-                          } else if (index === 2) {
-                            e.currentTarget.style.backgroundColor = 'rgba(20, 160, 152, 0.1)';
-                          } else if (index === 3) {
-                            e.currentTarget.style.backgroundColor = 'rgba(230, 126, 34, 0.1)';
-                          } else if (index === 4) {
-                            e.currentTarget.style.backgroundColor = 'rgba(224, 126, 168, 0.1)';
-                          } else {
-                            e.currentTarget.style.backgroundColor = 'rgba(201, 169, 125, 0.1)';
-                          }
+                          e.currentTarget.style.backgroundColor = hexToRgba(theme.main, 0.1);
                         }}
                         onMouseOut={(e) => {
                           e.currentTarget.style.backgroundColor = 'transparent';
@@ -360,6 +297,8 @@ const Projects: React.FC = () => {
                 </Card.Body>
               </Card>
             </Col>
+              );
+            })()
           ))}
         </Row>
       </Container>
