@@ -104,7 +104,7 @@ const Projects: React.FC = () => {
         <Row className="g-4">
           {projects.map((project, index) => (
             (() => {
-              const isFeatured = index <= 4;
+              const isFeatured = index <= 5;
               const theme = project.themeKey ? projectThemes[project.themeKey] : projectThemes.gold;
               const featuredShadow = `0 15px 35px ${hexToRgba(theme.main, 0.2)}, 0 5px 15px rgba(0, 0, 0, 0.1)`;
               const normalShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
