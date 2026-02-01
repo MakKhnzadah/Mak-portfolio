@@ -46,7 +46,7 @@ const Projects: React.FC = () => {
       description: 'A comprehensive job portal platform designed specifically for newly graduated students and employers in Norway. Features include user role management (Employee/Employer), job listings with detailed views, application tracking, resume/cover letter uploads, and personalized dashboards that focus on connecting fresh graduates with relevant opportunities.',
       technologies: ['ASP.NET Core', 'C#', 'Entity Framework', 'SQLite', 'Identity', 'Razor Views', 'Bootstrap 5'],
       imageUrl: `${process.env.PUBLIC_URL}/images/nyutdannet-job-portal.png`,
-      label: '',
+      label: ' ',
       repoUrl: 'https://github.com/MakKhnzadah/NyUtdannet_2',
       themeKey: 'gold'
     },
@@ -55,7 +55,7 @@ const Projects: React.FC = () => {
       description: 'A feature-rich travel social application that helps users document and share their travel experiences. Users can create blog posts about places they\'ve visited, share photos, connect with friends, and discover new destinations through an interactive map interface. Includes features for travel visualization, social feed, customizable profiles, and multi-language support.',
       technologies: ['TypeScript','React Native', 'Expo', 'Firebase', 'Redux', 'MapView API', 'i18n', 'Cloud Storage'],
       imageUrl: `${process.env.PUBLIC_URL}/images/mapTogether.png`,
-      label: '',
+      label: ' ',
       repoUrl: 'https://github.com/MakKhnzadah/ikt205g25v-group-03',
       themeKey: 'blue'
     },
@@ -64,7 +64,7 @@ const Projects: React.FC = () => {
       description: 'A comprehensive data analysis project exploring the relationship between bicycle usage and weather conditions in three Norwegian cities: Bergen, Kristiansand, and Tromsø. Features include hypothesis testing, Bayesian analysis, and insightful visualizations through heatmaps, boxplots, scatter plots, and time series to uncover patterns in cycling activity relative to weather variables.',
       technologies: ['Python', 'Pandas', 'Matplotlib', 'Seaborn', 'Statistical Analysis', 'Jupyter Notebooks'],
       imageUrl: `${process.env.PUBLIC_URL}/images/bergen_heatmaps.png`,
-      label: '',
+      label: ' ',
       repoUrl: 'https://github.com/MakKhnzadah/Statistics-Project',
       themeKey: 'teal'
     },
@@ -73,7 +73,7 @@ const Projects: React.FC = () => {
       description: 'A small Java web app running on embedded Jetty with FreeMarker templates and a SQLite backend, built as a software security exercise. I reviewed the authentication and patient-search flow, identified issues such as SQL injection risks, XSS potential, and weak error handling, then implemented mitigations aligned with OWASP guidance (parameterized SQL, safer template output, and tighter request/response handling).',
       technologies: ['Java', 'Jetty (Servlets)', 'FreeMarker', 'SQLite', 'JDBC', 'Gradle', 'OWASP'],
       imageUrl: `${process.env.PUBLIC_URL}/images/xss-reflected-form.PNG`,
-      label: 'Security Project',
+      label: ' ',
       repoUrl: 'https://github.com/MakKhnzadah/Identifying-and-Fixing-Security-Vulnerabilities-on-a-Web-Application',
       themeKey: 'yellow'
     },
@@ -82,7 +82,7 @@ const Projects: React.FC = () => {
       description: 'ShopLite is a full-stack e-commerce web app built with React and Spring Boot. It features secure JWT authentication, role-based access (User/Admin), and RESTful APIs for products, carts, and orders. The platform includes an admin dashboard for store management, file uploads, and basic health checks, with Stripe payment integration prepared.',
       technologies: ['Java', 'TypeScript', 'HTML', 'CSS', 'React', 'Spring Boot', 'Maven', 'JUnit', 'Docker'],
       imageUrl: `${process.env.PUBLIC_URL}/images/shop-lite.png`,
-      label: '',
+      label: ' ',
       repoUrl: 'https://github.com/MakKhnzadah/Shop-Lite-Project',
       themeKey: 'orange'
     },
