@@ -45,7 +45,8 @@ const Projects: React.FC = () => {
       title: 'NyUtdannet Job Portal',
       description: 'A comprehensive job portal platform designed specifically for newly graduated students and employers in Norway. Features include user role management (Employee/Employer), job listings with detailed views, application tracking, resume/cover letter uploads, and personalized dashboards that focus on connecting fresh graduates with relevant opportunities.',
       technologies: ['ASP.NET Core', 'C#', 'Entity Framework', 'SQLite', 'Identity', 'Razor Views', 'Bootstrap 5'],
-  imageUrl: `${process.env.PUBLIC_URL}/images/nyutdannet-job-portal.png`,
+      imageUrl: `${process.env.PUBLIC_URL}/images/nyutdannet-job-portal.png`,
+      label: '',
       repoUrl: 'https://github.com/MakKhnzadah/NyUtdannet_2',
       themeKey: 'gold'
     },
@@ -53,7 +54,8 @@ const Projects: React.FC = () => {
       title: 'TravelHub Social App',
       description: 'A feature-rich travel social application that helps users document and share their travel experiences. Users can create blog posts about places they\'ve visited, share photos, connect with friends, and discover new destinations through an interactive map interface. Includes features for travel visualization, social feed, customizable profiles, and multi-language support.',
       technologies: ['TypeScript','React Native', 'Expo', 'Firebase', 'Redux', 'MapView API', 'i18n', 'Cloud Storage'],
-  imageUrl: `${process.env.PUBLIC_URL}/images/mapTogether.png`,
+      imageUrl: `${process.env.PUBLIC_URL}/images/mapTogether.png`,
+      label: '',
       repoUrl: 'https://github.com/MakKhnzadah/ikt205g25v-group-03',
       themeKey: 'blue'
     },
@@ -61,7 +63,8 @@ const Projects: React.FC = () => {
       title: 'Statistics Project: Bicycle and Weather Data Analysis',
       description: 'A comprehensive data analysis project exploring the relationship between bicycle usage and weather conditions in three Norwegian cities: Bergen, Kristiansand, and Tromsø. Features include hypothesis testing, Bayesian analysis, and insightful visualizations through heatmaps, boxplots, scatter plots, and time series to uncover patterns in cycling activity relative to weather variables.',
       technologies: ['Python', 'Pandas', 'Matplotlib', 'Seaborn', 'Statistical Analysis', 'Jupyter Notebooks'],
-  imageUrl: `${process.env.PUBLIC_URL}/images/bergen_heatmaps.png`,
+      imageUrl: `${process.env.PUBLIC_URL}/images/bergen_heatmaps.png`,
+      label: '',
       repoUrl: 'https://github.com/MakKhnzadah/Statistics-Project',
       themeKey: 'teal'
     },
@@ -78,7 +81,8 @@ const Projects: React.FC = () => {
       title: 'ShopLite',
       description: 'ShopLite is a full-stack e-commerce web app built with React and Spring Boot. It features secure JWT authentication, role-based access (User/Admin), and RESTful APIs for products, carts, and orders. The platform includes an admin dashboard for store management, file uploads, and basic health checks, with Stripe payment integration prepared.',
       technologies: ['Java', 'TypeScript', 'HTML', 'CSS', 'React', 'Spring Boot', 'Maven', 'JUnit', 'Docker'],
-  imageUrl: `${process.env.PUBLIC_URL}/images/shop-lite.png`,
+      imageUrl: `${process.env.PUBLIC_URL}/images/shop-lite.png`,
+      label: '',
       repoUrl: 'https://github.com/MakKhnzadah/Shop-Lite-Project',
       themeKey: 'orange'
     },
@@ -86,7 +90,7 @@ const Projects: React.FC = () => {
       title: 'Munin Alert',
       description: 'Munin Alert is a full-stack monitoring and alerting platform with a React frontend and a Spring Boot backend. It features real-time alert updates via WebSockets, RESTful APIs for system health and event management, and interactive map visualization using Leaflet. The app supports user authentication, live status dashboards, and automated health checks for reliable system monitoring.',
       technologies: ['Java', 'JavaScript', 'HTML', 'CSS', 'React', 'Spring Boot', 'Maven', 'Batch Scripts', 'JSON', 'Markdown'],
-  imageUrl: `${process.env.PUBLIC_URL}/images/munin_alert.png`,
+      imageUrl: `${process.env.PUBLIC_URL}/images/munin_alert.png`,
       label: 'Real Project',
       repoUrl: 'https://github.com/MakKhnzadah/munin-alert',
       themeKey: 'pink',

@@ -21,6 +21,7 @@ const Skills: React.FC = () => {
               <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Spring_Boot.svg" alt="Spring Boot" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" alt="Maven" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
