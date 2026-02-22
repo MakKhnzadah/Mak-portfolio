@@ -32,6 +32,7 @@ const Skills: React.FC = () => {
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
             </div>
           </Col>
