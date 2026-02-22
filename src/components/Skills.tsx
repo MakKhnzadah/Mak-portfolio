@@ -26,6 +26,7 @@ const Skills: React.FC = () => {
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" width="50" height="50" style={{ filter: 'brightness(0.9)' }} />
