@@ -13,6 +13,7 @@ const About: React.FC = () => {
   I am a motivated and results-oriented third-year Computer Engineering student with a strong focus on software development and programming.
   I have experience in procurement and administration, along with solid skills in{" "}
   <span style={{ color: '#c9a97d' }}>Java</span>,{" "}
+  <span style={{ color: '#c9a97d' }}>Kotlin</span>,{" "}
   <span style={{ color: '#c9a97d' }}>Spring Boot</span>,{" "}
   <span style={{ color: '#c9a97d' }}>Maven</span>,{" "}
   <span style={{ color: '#c9a97d' }}>C</span>,{" "}
