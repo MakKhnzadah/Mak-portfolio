@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card, Badge, Button } from 'react-bootstrap';
 
-type ThemeKey = 'gold' | 'blue' | 'teal' | 'orange' | 'pink' | 'purple' | 'yellow';
+type ThemeKey = 'gold' | 'blue' | 'teal' | 'orange' | 'pink' | 'purple' | 'yellow' | 'glencore';
 
 interface ProjectItem {
   title: string;
@@ -11,6 +11,7 @@ interface ProjectItem {
   imageFit?: 'contain' | 'cover';
   imagePadding?: string;
   imageBackground?: string;
+  imageOverlayOpacity?: number;
   demoUrl?: string;
   repoUrl?: string;
   label?: string;
@@ -37,7 +38,8 @@ const Projects: React.FC = () => {
     orange: { main: '#e67e22', accent: '#c79e5d', demoHover: '#c17a3b' },
     pink: { main: '#e07ea8', accent: '#f4a9c7', demoHover: '#f4a9c7' },
     purple: { main: '#8b5cf6', accent: '#ddd6fe', demoHover: '#7c3aed' },
-    yellow: { main: '#d4a017', accent: '#f1d77a', demoHover: '#b8860b', demoText: '#1a1a1a' }
+    yellow: { main: '#d4a017', accent: '#f1d77a', demoHover: '#b8860b', demoText: '#1a1a1a' },
+    glencore: { main: '#00AFAA', accent: '#78d9d5', demoHover: '#009a96' }
   };
 
   const projects: ProjectItem[] = [
@@ -97,6 +99,19 @@ const Projects: React.FC = () => {
       imageFit: 'contain',
       imagePadding: '10px',
       imageBackground: '#f9f7f3'
+    },
+    {
+      title: 'AI-Agent Bachelor Thesis (Glencore Nikkelverk)',
+      description: 'An AI-assisted document workflow platform developed as a bachelor thesis project with Glencore Nikkelverk. It combines a React frontend with a FastAPI backend to support document upload, AI-based revision suggestions (Ollama), approval/rejection workflow, activity/audit tracking, and vector-search-ready knowledge base integration (Chroma). Includes contract-first API design, SQLite persistence, and gradual frontend service migration from mock data to live APIs. This project is currently under implementation.',
+      technologies: ['Python', 'FastAPI', 'SQLite', 'React', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Ollama', 'ChromaDB', 'REST API', 'Pydantic', 'Uvicorn', 'Markdown'],
+      imageUrl: `${process.env.PUBLIC_URL}/images/glencore.png`,
+      label: 'Real Project',
+      repoUrl: 'https://github.com/MakKhnzadah/KI-agent-Bacheloroppgave-av-Glencore-Nikkelverk-AS',
+      themeKey: 'glencore',
+      imageFit: 'contain',
+      imagePadding: '10px',
+      imageBackground: '#ffffff',
+      imageOverlayOpacity: 0
     }
   ];
 
@@ -113,7 +128,8 @@ const Projects: React.FC = () => {
               const featuredShadow = `0 15px 35px ${hexToRgba(theme.main, 0.2)}, 0 5px 15px rgba(0, 0, 0, 0.1)`;
               const normalShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
               const featuredBorder = `1px solid ${hexToRgba(theme.main, 0.3)}`;
-              const overlayGradient = `linear-gradient(to bottom, ${hexToRgba(theme.main, 0.2)}, rgba(0, 0, 0, 0))`;
+              const overlayOpacity = project.imageOverlayOpacity ?? 0.2;
+              const overlayGradient = `linear-gradient(to bottom, ${hexToRgba(theme.main, overlayOpacity)}, rgba(0, 0, 0, 0))`;
               const labelGradient = `linear-gradient(135deg, ${theme.main}, ${theme.accent})`;
               const demoTextColor = theme.demoText || '#ffffff';
               const imageFit = project.imageFit || (isFeatured ? 'contain' : 'cover');
