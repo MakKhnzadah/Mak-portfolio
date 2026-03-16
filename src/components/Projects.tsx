@@ -126,7 +126,7 @@ const Projects: React.FC = () => {
               const isFeatured = index <= 5;
               const theme = project.themeKey ? projectThemes[project.themeKey] : projectThemes.gold;
               const featuredShadow = `0 15px 35px ${hexToRgba(theme.main, 0.2)}, 0 5px 15px rgba(0, 0, 0, 0.1)`;
-              const normalShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+              const normalShadow = `0 10px 30px ${hexToRgba(theme.main, 0.22)}`;
               const featuredBorder = `1px solid ${hexToRgba(theme.main, 0.3)}`;
               const overlayOpacity = project.imageOverlayOpacity ?? 0.2;
               const overlayGradient = `linear-gradient(to bottom, ${hexToRgba(theme.main, overlayOpacity)}, rgba(0, 0, 0, 0))`;
